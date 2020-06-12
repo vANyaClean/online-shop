@@ -7,6 +7,7 @@ class ProductsService {
         if (!this.products) {
             this.products = await (await fetch('products.json')).json();
         }
+        this.products.sort((a, b)=> b.price - a.price);
         return this.products;
     }
     async getProductById(id) {
